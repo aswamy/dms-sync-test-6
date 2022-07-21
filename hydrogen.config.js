@@ -1,14 +1,15 @@
-import {defineConfig} from '@shopify/hydrogen/config';
 import {
+  defineConfig,
   CookieSessionStorage,
   PerformanceMetricsServerAnalyticsConnector,
-} from '@shopify/hydrogen';
+} from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: () => ({
-    defaultLocale: 'en',
-    storeDomain: 'shop1.shopify.pass-domain-to-dms-env.alok-swamy.eu.spin.dev',
-    storefrontToken: '1535fe55b3a0cc7e47a2830f63ed275d',
+    defaultLanguageCode: 'EN',
+    defaultCountryCode: 'CA',
+    storeDomain: Oxygen.env.SHOPIFY_STORE_DOMAIN,
+    storefrontToken: Oxygen.env.SHOPIFY_STOREFRONT_API_PUBLIC_TOKEN,
     storefrontApiVersion: '2022-07',
   }),
   session: CookieSessionStorage('__session', {
